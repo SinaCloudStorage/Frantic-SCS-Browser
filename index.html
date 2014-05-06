@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>SCS Browser</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="assets/js/libs/jquery.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="assets/js/libs/jquery.ui.widget.js" charset="utf-8"></script>
+		<script type="text/javascript" src="assets/js/libs/jquery.fileupload.js" charset="utf-8"></script>
+		<script type="text/javascript" src="assets/js/libs/jquery.form.js" charset="utf-8"></script>
+		<script type="text/javascript" src="assets/js/libs/sha1.js" charset="utf-8"></script>
+		<script type="text/javascript" src="assets/js/frantics3browser.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="assets/css/frantics3browser.css" type="text/css" />
+		<link rel="stylesheet" href="assets/css/branding.css" type="text/css" />
+	</head>
+<body>
+
+<div id="div_login_form">
+	<div id="login_error">Login failed. Please check the information and try again.</div>
+	<div class="theming">
+		<h1>SCS Browser</h1>
+		<h2>Files</h2>
+		<a id="logout" href="">Logout</a>
+	</div>
+	<form id="login_form" action="" method="GET">
+		<div class="input_group"><label for="bucket">Bucket</label><input type="text" name="bucket" id="bucket" value="" /></div>
+		<div class="input_group"><label for="aws_access_key_id">Access Key</span><input type="text" name="aws_access_key_id" id="aws_access_key_id" value="" /></div>
+		<div class="input_group"><label for="aws_secret_access_key">Secret Key</label><input type="text" name="aws_secret_access_key" id="aws_secret_access_key" value="" /></div>
+		<input type="submit" value="Login" />
+	</form>
+</div>
+<div id="bucketlist"></div>
+<div id="upload">
+	<form id="upload_form" action="/" method="post" enctype="multipart/form-data">
+		<label for="fileupload">Select file to upload: </label><div id="fake_upload">Choose file<input type="file" id="fileupload" name="file" /></div>
+	<!--    <input type="submit" value="Save"> -->
+	</form>
+	or just drop the files here to upload them immediately.
+	<div id="div_upload_form" class="fade well">
+		Drop files here:
+	</div>
+</div>
+<script>
+var frantics3browser = new FranticS3Browser;
+jQuery(document).ready(function(){
+        // See http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region for a listing of proper s3_endpoints.
+	frantics3browser.init({'hash': location.hash, 'login_form': '#login_form', 'div_logout_form': '#div_logout_form', 'div_upload_form': '#upload', 'fileupload_field': '#fileupload', 'bucketlist': '#bucketlist', 'login_error': '#login_error', 's3_endpoint': 'sinastorage.com'});
+});
+</script>
+
+</body>
+</html>
+
