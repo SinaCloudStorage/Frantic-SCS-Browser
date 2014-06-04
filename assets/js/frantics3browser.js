@@ -178,7 +178,7 @@ var FranticS3Browser = function () {
 	    	aws_access_key_id_20 += '0';
     	}
 		
-		aws_access_key_id_20 += aws_access_key_id;
+		aws_access_key_id_20 += aws_access_key_id.toUpperCase();
 		
         $fileupload_field.fileupload({
                 url: protocolurl + bucket + s3url + '/',
