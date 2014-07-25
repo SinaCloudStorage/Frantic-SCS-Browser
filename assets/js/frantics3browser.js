@@ -171,22 +171,13 @@ var FranticS3Browser = function () {
 
     var init_fileupload_field = function () {
     	
-    	var aws_access_key_id_20 = 'SINA';
-    	
-    	for (var i=0; i<(16-aws_access_key_id.length); i++) {
-	    	
-	    	aws_access_key_id_20 += '0';
-    	}
-		
-		aws_access_key_id_20 += aws_access_key_id.toUpperCase();
-		
         $fileupload_field.fileupload({
                 url: protocolurl + bucket + s3url + '/',
                 type: 'POST',
                 autoUpload: true,
                 formData: {
                     key: '${filename}',
-                    AWSAccessKeyId: aws_access_key_id_20,
+                    AWSAccessKeyId: aws_access_key_id,
                     acl: aws_canned_acl,
                     Policy: aws_policy_document_b64,
                     Signature: aws_signature
