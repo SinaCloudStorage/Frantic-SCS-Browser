@@ -20,7 +20,7 @@ var FranticS3Browser = function () {
     var $div_upload_form;
     var qs;
 
-    var s3url = '.sinastorage.cn';
+    var s3url = '.sinacloud.net';
     var aws_canned_acl = 'private';
     var aws_policy_document;
     var aws_policy_document_b64;
